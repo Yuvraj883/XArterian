@@ -4,24 +4,31 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link href="./style.css" rel="stylesheet"/>
-  <script src="./app.js"></script>
-  <title>Document</title>
+  <title>Weather App</title>
 </head>
 <body>
   <nav class="nav">
-  <span class="logo">Weather App</span>
-  <div class="circle-red">
-  </div>
+    <span class="logo">Weather App</span>
+    <div class="circle-red"></div>
   </nav>
 
-  <section >
-    <span>
-     <input placeholder="Enter the city name"/>
-     <button id="search-icon">🔍</button>
+  <div class="container">
+    <span class="input">
+      <input id="city-input" placeholder="Enter the city name"/>
+      <button id="search-icon">🔍</button>
     </span>
-  </section>
 
+    <section class="output hidden">
+      <span class="city-container">
+        <p class="city-name"></p>
+      </span>
+      <span class="result">
+        <p class="temperature"></p>
+        <p class="humidity"></p>
+      </span>
+    </section>
+  </div>
 
-
+  <script src="./app.js"></script>
 </body>
 </html>
