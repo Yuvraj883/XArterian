@@ -28,7 +28,7 @@ const getWeatherInfo = ()=>{
 
 
 
-    console.log(data?.weather[0]);
+    // console.log(data?.weather[0]);
   }).catch(error=>{
     console.log(error);
   })
