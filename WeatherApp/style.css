@@ -8,7 +8,7 @@
   transform: translateX(-50%);
 }
 body{
-  background-image: url(./bg.avif);
+  background-image: url(./assets/bg.avif);
 
   background-repeat: no-repeat;
   background-size: cover;
