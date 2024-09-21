@@ -32,7 +32,7 @@ body {
   background-color: blanchedalmond;
   border-radius: 10px;
   width: 60%;
-  height: 200px;
+  height: 300px;
   box-shadow: 10px 10px 15px black;
   margin: 10px auto;
   padding: 10px;
@@ -70,6 +70,7 @@ input {
 .visible {
   display: flex !important;
   flex-direction: column;
+
   width: 80%;
   margin: 10px 0;
   justify-content: center;
@@ -94,8 +95,20 @@ input {
   display: flex;
   justify-content: space-between;
   min-width: 90%;
+  align-items: center;
+  font-weight:800;
 }
 
+.icon-description{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap:1;
+  font-weight: bold;
+}
+.icon{
+  margin:0;
+}
 
 
 @media (max-width:600px){
@@ -110,6 +123,8 @@ input {
 
   }
 
+
+
   .container {
     display: flex;
     flex-direction: column;
@@ -118,10 +133,13 @@ input {
     background-color: blanchedalmond;
     border-radius: 10px;
     width: 80%;
-    height: 200px;
+    height: 350px;
     box-shadow: 10px 10px 15px black;
     margin: 150px auto;
     padding: 10px;
   }
-
+.result{
+  display: flex;
+  flex-direction: column;
+}
 }
