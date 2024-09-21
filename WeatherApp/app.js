@@ -1,9 +1,10 @@
 const searchIcon = document.getElementById('search-icon');
+let inputField = document.getElementById('city-input');
+
 
 const getWeatherInfo = ()=>{
   const API_KEY = 'b99b652d448e47e5a48a226c5ed84910';
-
-  let city = document.getElementById('city-input').value;
+  let city = inputField.value;
   if(city===''){
     city='delhi';
   }
@@ -36,4 +37,9 @@ const getWeatherInfo = ()=>{
 
 
 searchIcon.addEventListener('click', getWeatherInfo);
+inputField.addEventListener('keydown', (event)=>{
+  if(event.key==='Enter'){
+    getWeatherInfo();
+  }
+})
 
