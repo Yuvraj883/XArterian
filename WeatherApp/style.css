@@ -1,0 +1,64 @@
+.circle-red{
+  height: 150px;
+  width: 150px;
+  border-radius: 50%;
+  background: red;
+  margin: auto;
+  z-index: 9;
+  transform: translateX(-50%);
+}
+body{
+  background-image: url(./bg.avif);
+
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+.nav{
+  display: flex;
+}
+.logo{
+  font-size: x-large;
+  font-weight: bold;
+  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
+
+section{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: blanchedalmond;
+  border-radius: 10px;
+  width: 60%;
+  height: 200px;
+  box-shadow: 10px 10px 15px black;
+  margin:10px auto;
+
+}
+
+input{
+  border: none;
+  padding: 8px 8px;
+  width: 90%;
+  border-radius: 10px;
+  outline: none;
+}
+section span{
+  background-color: white;
+  width: 40%;
+  border-radius: 10px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 2px 2px;
+}
+
+#search-icon{
+  background:transparent;
+  border: none;
+  cursor: pointer;
+  transition: transform 0.3s ease;
+}
+
+#search-icon:hover {
+  transform: scale(1.1); /* Scales the icon to 110% when hovered */
+}
