@@ -4,10 +4,42 @@
     <meta charset="UTF-8" />
     <link rel="icon" type="image/svg+xml" href="/vite.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="https://cdn.tailwindcss.com"></script>
     <title>E-Commerce</title>
   </head>
   <body>
-    <div id="app"></div>
+
+    <div id="app" class="">
+
+      <!-- Nav bar -->
+      <nav class="flex justify-between items-center px-8 py-4 bg-slate-100 drop-shadow-lg">
+        <span class="font-bold text-xl font-serif">YoungGods</span>
+
+        <ul class="flex gap-6 font-semibold ">
+          <li class="cursor-pointer hover:text-blue-500">Home</li>
+          <li  class="cursor-pointer hover:text-blue-500">Shop</li>
+          <li  class="cursor-pointer hover:text-blue-500">Contact Us</li>
+          <li  class="cursor-pointer hover:text-blue-500">Cart</li>
+        </ul>
+      </nav>
+      <!-- Nav bar -->
+
+      <!-- products Listing -->
+
+      <template>
+        <div class="flex flex-col justify-center items-center">
+        <img id="product-img" src="" alt="" class=""/>
+        <h2 id="product-title"></h3>
+        <p id="product-rating"></p>
+        <p id="product-description"></p>
+        <h3 id="product-price"></h3>
+        <h3 id="product-actual-price"></h3>
+
+        </div>
+      </template>
+
+
+    </div>
     <script type="module" src="/main.js"></script>
   </body>
 </html>
