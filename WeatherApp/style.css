@@ -95,3 +95,33 @@ input {
   justify-content: space-between;
   min-width: 90%;
 }
+
+
+
+@media (max-width:600px){
+  body{
+    background-size: cover;
+    height: 100vh;
+
+  }
+  .circle-red{
+    height: 100px;
+    width: 100px;
+
+  }
+
+  .container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-color: blanchedalmond;
+    border-radius: 10px;
+    width: 80%;
+    height: 200px;
+    box-shadow: 10px 10px 15px black;
+    margin: 150px auto;
+    padding: 10px;
+  }
+
+}
