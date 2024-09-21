@@ -18,11 +18,17 @@ const getWeatherInfo = ()=>{
     }
   }).then((data)=>{
     document.querySelector('.output').classList.add('visible');
-    document.querySelector('.city-name').textContent = `${data?.name}📍`
-    document.querySelector('.temperature').textContent = `Temp☀️: ${(data?.main?.temp/10).toFixed(1)}°C`
-    document.querySelector('.humidity').textContent = `Humidity☁️: ${data?.main?.humidity}%`
+    document.querySelector('.city-name').textContent = `${data?.name}📍`;
+    document.querySelector('.temperature').textContent = `Temp☀️: ${(data?.main?.temp/10).toFixed(1)}°C`;
+    document.querySelector('.humidity').textContent = `Humidity☁️: ${data?.main?.humidity}%`;
+    document.querySelector('.icon').src = `https://openweathermap.org/img/wn/${data?.weather[0]?.icon}@2x.png`;
+    document.querySelector('.description').textContent = `${data?.weather[0]?.description}`;
+    document.querySelector('.heading').textContent='';
 
-    console.log(data?.main);
+
+
+
+    console.log(data?.weather[0]);
   }).catch(error=>{
     console.log(error);
   })
