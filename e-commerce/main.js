@@ -1,4 +1,4 @@
-const URL = 'https://dummyjson.com/products/?limit=40';
+const URL = 'https://dummyjson.com/products/?limit=20';
 
 let products;
 
