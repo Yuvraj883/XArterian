@@ -25,6 +25,32 @@ fetch(URL).then((res)=>{
   productNode.querySelector('#product-availability').textContent = productDetails?.availabilityStatus;
   productNode.querySelector("#product-description").textContent = productDetails?.description;
   productNode.querySelector('#product-stock').textContent = `Only ${productDetails?.stock} left in stock`;
+  productNode.querySelector('#product-reviews').textContent = ` ${productDetails?.reviews?.length} Reviews`
+  const reviewSection = productNode.querySelector("#product-reviews-section");
+
+  productDetails?.reviews.forEach(review=>{
+    const container = document?.createElement('div');
+    const title = document?.createElement('h3');
+    const text = document?.createElement('p');
+    const time = document?.createElement('p');
+    const formattedDate = new Date(review?.date);
+    const localTime = formattedDate.toLocaleString();
+
+    title.textContent = `${review?.reviewerName}, ${review?.rating}⭐`;
+    text.textContent = review?.comment;
+
+    time.textContent = localTime;
+
+    container.classList.add('flex' ,'flex-col' ,'p-2', 'bg-gray-100', 'm-1', 'w-[360px]');
+    title.classList.add('font-semibold', 'text-lg', 'text-gray-600', 'mb-2');
+    text.classList.add('font-regular', 'text-md', )
+    time.classList.add('text-sm', 'text-gray-600')
+    container.append(title);
+    container.append(time);
+    container.append(text);
+    reviewSection.append(container);
+  })
+
 
 
   const tagsContainer = productNode.querySelector('#product-tags');
