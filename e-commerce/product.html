@@ -24,9 +24,12 @@
 
   <div id="product-details-page">
     <template id="product-details">
-      <section class="flex justify-around p-8">
-        <img src="" alt="" id="product-img" class="w-auto h-96"/>
-        <article class="flex flex-col justify-center">
+      <section class="flex flex-col md:flex-row justify-around p-8 ">
+        <div class="w-[100%] p-4 flex flex-col md:flex-row justify-center items-center bg-gray-100">
+          <img src="" alt="" id="product-img" class="w-auto h-96"/>
+
+        </div>
+        <article class="flex flex-col justify-center p-4">
           <h3 id="product-title" class="text-xl font-bold"></h3>
           <h3 id="product-brand" class="text-lg text-gray-600 font-bold italic"></h3>
           <div id="product-tags" class=" text-sm flex flex-wrap"></div>
@@ -38,12 +41,20 @@
 
 
           <p id="product-description" class="w-[70%] text-gray-600" ></p>
+          <button
+          class="border-2 border-gray-600 text-black hover:text-white rounded-md hover:bg-gray-600 px-2 py-1 mt-2">Add
+          to Cart</button>
 
 
 
         </article>
 
+
       </section>
+      <h1 id="product-reviews" class="font-bold text-lg ml-8"> </h1>
+
+      <div id="product-reviews-section" class="p-8 flex flex-col md:flex-row  flex-wrap justify-between">
+      </div>
 
     </template>
   </div>
