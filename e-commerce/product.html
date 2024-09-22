@@ -21,13 +21,24 @@
           </ul>
         </nav>
         <!-- Nav bar -->
-  <div>
+
+  <div id="product-details-page">
     <template id="product-details">
-      <section>
-        <img src="" alt="" id="product-img" class=""/>
-        <article>
-          <h3 id="product-title" class=""></h3>
-          <h3 id="product-brand" class=""></h3>
+      <section class="flex justify-around p-8">
+        <img src="" alt="" id="product-img" class="w-auto h-96"/>
+        <article class="flex flex-col justify-center">
+          <h3 id="product-title" class="text-xl font-bold"></h3>
+          <h3 id="product-brand" class="text-lg text-gray-600 font-bold italic"></h3>
+          <div id="product-tags" class=" text-sm flex flex-wrap"></div>
+
+          <h3 id="product-price" class="font-bold text-lg"></h3>
+          <h3 id="product-actual-price" class="line-through font-bold text-gray-600 "></h3>
+          <p id ="product-availability" class="text-red-800"></p>
+          <p id="product-stock" class="text-red-800 font-semibold"></p>
+
+
+          <p id="product-description" class="w-[70%] text-gray-600" ></p>
+
 
 
         </article>
