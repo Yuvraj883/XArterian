@@ -17,8 +17,10 @@ if(cart.length===0){
   cartNode.querySelector('#cart-title').textContent = "You don't have anything in the cart!";
   const removeBtn = cartNode.querySelector('.remove-btn');
   const imgContainer = cartNode.querySelector('#img-container');
+  const checkoutBtn = cartNode.querySelector('#checkout-btn');
   imgContainer.classList.add('hidden');
   removeBtn.classList.add('hidden');
+  checkoutBtn.classList.add('hidden');
 
 
   cartItems.append(cartNode);
