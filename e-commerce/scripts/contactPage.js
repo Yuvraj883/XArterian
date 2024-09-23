@@ -28,3 +28,12 @@ const script = document.createElement('script');
 script.src = 'https://maps.googleapis.com/maps/api/js?key=YOUR_API_KEY&callback=initMap';
 script.async = true;
 document.head.appendChild(script);
+
+const menuToggle = document.getElementById('menu-toggle');
+const mobileMenu = document.getElementById('mobile-menu');
+
+menuToggle.addEventListener('click', () => {
+mobileMenu.classList.toggle('hidden');
+console.log('clicked');
+
+})

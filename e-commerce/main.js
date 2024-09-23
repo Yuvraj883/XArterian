@@ -51,7 +51,13 @@ fetch(URL)
     console.error('Error fetching products:', e);
   });
 
-  //9934727297
+
+const menuToggle = document.getElementById('menu-toggle');
+const mobileMenu = document.getElementById('mobile-menu');
+
+menuToggle.addEventListener('click', () => {
+mobileMenu.classList.toggle('hidden');
+})
 
 
 
