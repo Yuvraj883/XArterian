@@ -9,19 +9,32 @@
 </head>
 <body class="min-h-screen">
 
-        <!-- Nav bar -->
-        <nav class="flex justify-between items-center px-8 py-4 bg-slate-100 drop-shadow-lg">
-          <span class="font-bold text-xl font-serif"><a href="/">Zomarzo</a> </span>
+  <nav class="flex justify-between items-center px-8 py-4 bg-slate-100 drop-shadow-lg">
+  <span class="font-bold text-xl font-serif"><a href="/">Zomarzo</a> </span>
 
-          <ul class="flex gap-6 font-semibold ">
-            <li class="cursor-pointer hover:text-blue-500"><a href="/">Home</a> </li>
-            <li  class="cursor-pointer hover:text-blue-500">Shop</li>
-            <li  class="cursor-pointer hover:text-blue-500"><a href="./contact-us.html">Contact Us</a></li>
-        <li class="cursor-pointer hover:text-blue-500"><a href="./usercart.html">Cart</a></li>
+  <!-- Hamburger Menu (hidden by default) -->
+  <button id="menu-toggle" class="block md:hidden text-gray-700 focus:outline-none">
+    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7" />
+    </svg>
+  </button>
 
-          </ul>
-        </nav>
-        <!-- Nav bar -->
+  <!-- Navigation Links -->
+  <ul id="menu" class="hidden md:flex gap-6 font-semibold">
+    <li class="cursor-pointer hover:text-blue-500"><a href="/">Home</a></li>
+    <li class="cursor-pointer hover:text-blue-500">Shop</li>
+    <li class="cursor-pointer hover:text-blue-500"><a href="./pages/contact-us.html">Contact Us</a></li>
+    <li class="cursor-pointer hover:text-blue-500"><a href="./pages/usercart.html">Cart</a></li>
+  </ul>
+</nav>
+
+<!-- Mobile Menu (Dropdown) -->
+<ul id="mobile-menu" class="hidden flex-col gap-4 mt-4 md:hidden bg-slate-100 px-8 py-4">
+  <li class="cursor-pointer hover:text-blue-500"><a href="/">Home</a></li>
+  <li class="cursor-pointer hover:text-blue-500">Shop</li>
+  <li class="cursor-pointer hover:text-blue-500"><a href="./pages/contact-us.html">Contact Us</a></li>
+  <li class="cursor-pointer hover:text-blue-500"><a href="./pages/usercart.html">Cart</a></li>
+</ul>
 
   <div id="product-details-page">
     <template id="product-details">
@@ -61,7 +74,7 @@
   </div>
 
 
-  <script type="module" src="./product.js"></script>
+  <script type="module" src="../scripts/product.js"></script>
 </body>
 
 <!-- Footer Section -->

@@ -1,4 +1,4 @@
-import { addToCart } from "./addToCart.js";
+import { addToCart } from "./scripts/addToCart.js";
 const URL = 'https://dummyjson.com/products/?limit=20';
 
 let products;
@@ -21,7 +21,7 @@ fetch(URL)
       productNode.querySelector('#product-actual-price').textContent = `$${product?.price.toFixed(2)}`;
       productNode.querySelector('#product-img').src = product?.thumbnail || 'default-image.jpg';
       productNode.querySelector('#product-rating').textContent = `${product.rating} ⭐`;
-      productNode.querySelector('#product-page-link').href=`product.html?id=${product?.id}`
+      productNode.querySelector('#product-page-link').href=`./pages/product.html?id=${product?.id}`
 
       const tagsContainer = productNode.querySelector('#product-tags');
 
