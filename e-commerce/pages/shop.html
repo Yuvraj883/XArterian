@@ -1,0 +1,152 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <title>E-Commerce</title>
+</head>
+
+<body>
+
+  <div id="app" class="bg-slate-100">
+
+    <!-- Nav bar -->
+
+    <nav class="flex justify-between items-center px-8 py-4 bg-slate-100 drop-shadow-lg">
+      <span class="font-bold text-xl font-serif"><a href="/">Zomarzo</a> </span>
+
+      <!-- Hamburger Menu  -->
+      <button id="menu-toggle" class="block md:hidden text-gray-700 focus:outline-none">
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7" />
+        </svg>
+      </button>
+
+      <!-- Navigation Links -->
+      <ul id="menu" class="hidden md:flex gap-6 font-semibold">
+        <li class="cursor-pointer hover:text-blue-500"><a href="/">Home</a></li>
+        <li class="cursor-pointer hover:text-blue-500"><a href="./pages/shop.html">Shop</a></li></li>
+        <li class="cursor-pointer hover:text-blue-500"><a href="./pages/contact-us.html">Contact Us</a></li>
+        <li class="cursor-pointer hover:text-blue-500"><a href="./pages/usercart.html">Cart</a></li>
+      </ul>
+    </nav>
+
+    <!-- Mobile Menu (Dropdown) -->
+    <ul id="mobile-menu" class="hidden flex-col gap-4 mt-4 md:hidden bg-slate-100 px-8 py-4">
+      <li class="cursor-pointer hover:text-blue-500"><a href="/">Home</a></li>
+      <li class="cursor-pointer hover:text-blue-500"><a href="./pages/shop.html">Shop</a></li></li>
+      <li class="cursor-pointer hover:text-blue-500"><a href="./pages/contact-us.html">Contact Us</a></li>
+      <li class="cursor-pointer hover:text-blue-500"><a href="./pages/usercart.html">Cart</a></li>
+    </ul>
+
+    <!-- Nav bar End -->
+   
+
+    <!-- products Listing -->
+    <div class="">
+      <div id="product-list"
+        class="flex flex-col md:flex-row items-center justify-center mx-auto flex-wrap gap-4 m-4 p-4">
+
+      </div>
+    </div>
+
+    <template id="product-card">
+      <div
+        class="flex flex-col justify-start items-start md:w-[23%] w-[70vw]  h-[63vh] shadow-lg p-4 rounded-md bg-white">
+        <span class="bg-gray-50 rounded-md w-full">
+
+
+          <img id="product-img" src="" alt="" class="h-40 w-auto mx-auto bg-gray " />
+        </span>
+
+        <h2 id="product-title" class="font-bold text-lg ">
+          </h3>
+          <h3 id="product-brand" class="font-semibold italic text-gray-600"></h3>
+          <div id="product-tags" class="p-1 text-sm flex flex-wrap"></div>
+          <p id="product-rating"></p>
+          <p id="product-description" class="text-gray-600 line-clamp-2 pr-2"></p>
+          <span class="flex justify-between w-full bottom-1">
+            <h3 id="product-price" class="font-bold"></h3>
+            <h3 id="product-actual-price" class="text-gray-600 line-through "></h3>
+          </span>
+          <span class="flex justify-between w-full">
+            <button
+              class="border-2 border-gray-600 text-black hover:text-white rounded-md hover:bg-gray-600 px-2 py-1 mt-2 add-to-cart">Add
+              to Cart</button>
+            <a class="border-2 border-gray-600 bg-gray-600 text-white hover:text-black rounded-md hover:bg-white px-2 py-1 mt-2"
+              id="product-page-link" href="">View Product</a>
+
+          </span>
+
+      </div>
+    </template>
+
+
+  </div>
+  <script type="module" src="/main.js"></script>
+</body>
+ <footer class="bg-gray-800 text-gray-300 py-10">
+  <div class="container mx-auto grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 p-4">
+
+
+    <div>
+      <h3 class="text-white text-xl font-semibold mb-4">About Us</h3>
+      <p class="text-sm">
+        We are a leading e-commerce platform dedicated to providing the best products at the most competitive prices.
+      </p>
+    </div>
+
+
+    <div>
+      <h3 class="text-white text-xl font-semibold mb-4">Quick Links</h3>
+      <ul>
+        <li class="mb-2"><a href="#" class="hover:text-white">Home</a></li>
+        <li class="mb-2"><a href="#" class="hover:text-white">Shop</a></li>
+        <li class="mb-2"><a href="#" class="hover:text-white">About Us</a></li>
+        <li class="mb-2"><a href="#" class="hover:text-white">Contact</a></li>
+      </ul>
+    </div>
+
+
+    <div>
+      <h3 class="text-white text-xl font-semibold mb-4">Contact Us</h3>
+      <p class="text-sm mb-2">
+        <i class="fas fa-phone-alt"></i> +1 (123) 456-7890
+      </p>
+      <p class="text-sm mb-2">
+        <i class="fas fa-envelope"></i> support@ecommerce.com
+      </p>
+      <p class="text-sm">
+        <i class="fas fa-map-marker-alt"></i> 123 E-Commerce St, Online City, USA
+      </p>
+    </div>
+
+
+    <div>
+      <h3 class="text-white text-xl font-semibold mb-4">Newsletter</h3>
+      <p class="text-sm mb-4">Subscribe to our newsletter to get the latest updates and offers.</p>
+      <form>
+        <input type="email" placeholder="Your email" class="w-full px-3 py-2 mb-4 text-gray-800 rounded focus:outline-none">
+        <button class="w-full bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600 transition-colors">
+          Subscribe
+        </button>
+      </form>
+    </div>
+  </div>
+
+
+  <div class="border-t border-gray-700 mt-8 p-4">
+    <div class="container mx-auto flex flex-col sm:flex-row justify-between text-sm">
+      <p>&copy; 2024 E-Commerce. All Rights Reserved.</p>
+      <div class="flex space-x-4">
+        <a href="#" class="hover:text-white">Privacy Policy</a>
+        <a href="#" class="hover:text-white">Terms of Service</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+</html>
