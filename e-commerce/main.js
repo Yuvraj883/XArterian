@@ -1,3 +1,4 @@
+import { addToCart } from "./addToCart";
 const URL = 'https://dummyjson.com/products/?limit=20';
 
 let products;
@@ -11,6 +12,7 @@ fetch(URL)
     const productList = document.querySelector('#product-list');
     products.forEach(product => {
       const productNode = template.content.cloneNode(true);
+
       productNode.querySelector('#product-title').textContent = product?.title || 'N/A';
       productNode.querySelector('#product-description').textContent = product?.description || 'No description available';
       productNode.querySelector('#product-brand').textContent = product?.brand;
@@ -31,9 +33,25 @@ fetch(URL)
 
       })
 
+      productNode.querySelector('.add-to-cart').addEventListener('click', ()=>{
+
+        const id = product.id;
+        const productTitle = product?.title
+        const productThumbnail = product?.thumbnail;
+        const productPrice = product?.thumbnail;
+        let quantity =1;
+
+        addToCart(id, productTitle, productThumbnail, productPrice, quantity);
+      })
+
       productList.append(productNode);
     });
   })
   .catch((e) => {
     console.error('Error fetching products:', e);
   });
+
+  //9934727297
+
+
+
