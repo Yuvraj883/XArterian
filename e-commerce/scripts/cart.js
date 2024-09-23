@@ -11,6 +11,12 @@ console.log(cart);
 const cartItems = document.querySelector('#cart-items')
 const template = document.querySelector('#cart-item');
 
+// const removeBtn = document.querySelector('.remove-btn');
+// removeBtn.addEventListener('click', ()=>{
+//   const index = this.parentElement.dataSet.id;
+//   alert(index);
+// })
+
 
 cart.forEach(item => {
   const cartNode = template.content.cloneNode(true);
@@ -18,8 +24,14 @@ cart.forEach(item => {
   cartNode.querySelector('#cart-img').alt=item?.title;
   cartNode.querySelector('#cart-title').textContent = item?.title;
   cartNode.querySelector('#cart-quantity').textContent = `Quantity: ${item?.quantity}`;
+  cartNode.querySelector('.remove-btn').setAttribute('date-id', item.id);
 
-
+  const removeBtn = cartNode.querySelector('.remove-btn');
+  removeBtn.addEventListener('click', ()=>{
+  const index = cart.findIndex(prod=>prod.id===item.id);
+  cart = cart?.splice(index, 1);
+  console.log(cart);
+  })
 
   cartItems.append(cartNode);
 
