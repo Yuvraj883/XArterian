@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Checkout</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-100">
+
+  <!-- Main container -->
+  <div class="container mx-auto py-12 px-4">
+    <h1 class="text-3xl font-bold mb-8">Checkout</h1>
+
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+      <!-- <h2 class="text-xl font-semibold mb-4">Billing Information</h2> -->
+
+
+
+
+      <!-- Cart Summary -->
+      <div>
+        <h2 class="text-xl font-semibold mb-4">Order Summary</h2>
+        <div class="bg-white p-6 rounded-lg shadow-md">
+
+          <!-- Placeholder for cart items -->
+          <div id="cart-summary" class="mb-4">
+            <div id="product-container"  class="flex justify-between mb-2">
+              <span id="product-title" >Product 1</span>
+              <span id="product-price">$50.00</span>
+            </div>
+            <div class="flex justify-between mb-2">
+              <span>Product 2</span>
+              <span>$30.00</span>
+            </div>
+            <div class="flex justify-between mb-2">
+              <span>Product 3</span>
+              <span>$20.00</span>
+            </div>
+          </div>
+
+          <hr class="my-4">
+
+          <!-- Total Price -->
+          <div class="flex justify-between text-xl font-semibold">
+            <span>Total</span>
+            <span>$100.00</span>
+          </div>
+
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+</body>
+</html>
