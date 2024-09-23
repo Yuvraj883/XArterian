@@ -5,7 +5,7 @@ export const addToCart = (productId, productTitle, productThumbnail, productPric
 
   if(existingProduct){
     existingProduct.quantity += 1;
-    console.log("Quantity update");
+    // console.log("Quantity update");
   }
   else{
     const item = {
@@ -18,9 +18,10 @@ export const addToCart = (productId, productTitle, productThumbnail, productPric
 
     }
     cart.push(item);
-    localStorage.setItem('cart', JSON.stringify(cart));
   }
   alert(`${productTitle} added to the cart!`);
+  localStorage.setItem('cart', JSON.stringify(cart));
+
 
 
 }
