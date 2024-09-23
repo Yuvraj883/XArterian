@@ -21,19 +21,19 @@
             </ul>
           </nav>
           <!-- Nav bar -->
-  <h1>User Cart</h1>
-  <div class="flex flex-col item-center " id="cart-items">
+  <h1 class="text-center">User Cart</h1>
+  <div class="flex flex-col item-center w-screen gap-4 my-4" id="cart-items">
 
   </div>
   <template id="cart-item">
-    <div id="cart">
-    <span>
-      <img id="cart-img" src="" alt="" class=""/>
+    <div id="cart" class="flex justify-center items-center gap-4">
+    <span class="bg-gray-100 p-8">
+      <img id="cart-img" src="" alt="" class="h-28 w-auto"/>
 
     </span>
-    <h3 id="cart-title" class=""></h3>
+    <h3 id="cart-title" class="font-bold text-lg w-[320px] px-2"></h3>
     <p id="cart-quantity"></p>
-    <button>Remove Item</button>
+    <button class="bg-red-700 font-semibold px-4 py-2 text-white rounded-md">Remove Item</button>
     </div>
   </template>
 <script src="./cart.js"></script>
