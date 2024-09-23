@@ -33,6 +33,7 @@ else{
     cartNode.querySelector('#cart-title').textContent = item?.title;
     cartNode.querySelector('#cart-quantity').textContent = `Quantity: ${item?.quantity}`;
     cartNode.querySelector('.remove-btn').setAttribute('data-id', item.id);
+    cartNode.querySelector('#cart-img-anchor').href=`./product.html?id=${item?.id}`;
 
     const removeBtn = cartNode.querySelector('.remove-btn');
     removeBtn.addEventListener('click', ()=>{
