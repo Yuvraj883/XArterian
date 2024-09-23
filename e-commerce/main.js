@@ -1,4 +1,4 @@
-import { addToCart } from "./addToCart";
+import { addToCart } from "./addToCart.js";
 const URL = 'https://dummyjson.com/products/?limit=20';
 
 let products;
