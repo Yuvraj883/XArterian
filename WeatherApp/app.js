@@ -3,7 +3,7 @@ let inputField = document.getElementById('city-input')
 
 const getWeatherInfo = () => {
   const API_KEY = 'b99b652d448e47e5a48a226c5ed84910'
-  let city = inputField.value
+  let city = inputField.value.trim();
   if (city === '') {
     city = 'delhi'
   }
@@ -13,11 +13,24 @@ const getWeatherInfo = () => {
     .then((res) => {
       if (!res.ok) {
         console.log(`API Call Failed with status ${res.status}`)
-      } else {
-        return res.json()
+
+
+      if(res.status===404){
+        alert("OOPS!! Weather data unavailable for this city.");
+
+      }
+      throw new Error("")
+    }
+      else {
+        // console.log(res.json());
+        return res.json();
       }
     })
     .then((data) => {
+      if(!data ||!data?.weather ||data?.weather?.lenght===0){
+        throw new Error ('OOPS!! Weather data unavailable for this city.');
+      }
+
       document.querySelector('.output').classList.add('visible')
       document.querySelector('.city-name').textContent = `${data?.name}📍`
       document.querySelector('.temperature').textContent = `Temp☀️: ${(
@@ -34,7 +47,7 @@ const getWeatherInfo = () => {
       ).textContent = `${data?.weather[0]?.description}`
       document.querySelector('.heading').textContent = ''
 
-      
+
     })
     .catch((error) => {
       console.log(error)
