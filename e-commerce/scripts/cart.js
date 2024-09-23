@@ -1,5 +1,9 @@
 
 let cart = localStorage.getItem('cart');
+
+const cartItems = document.querySelector('#cart-items');
+const template = document.querySelector('#cart-item');
+
 if(cart){
  cart = JSON.parse(cart);
 }
@@ -8,35 +12,43 @@ else{
 }
 console.log(cart);
 
-const cartItems = document.querySelector('#cart-items')
-const template = document.querySelector('#cart-item');
-
-// const removeBtn = document.querySelector('.remove-btn');
-// removeBtn.addEventListener('click', ()=>{
-//   const index = this.parentElement.dataSet.id;
-//   alert(index);
-// })
-
-
-cart.forEach(item => {
+if(cart.length===0){
   const cartNode = template.content.cloneNode(true);
-  cartNode.querySelector('#cart-img').src=item?.thumbnail;
-  cartNode.querySelector('#cart-img').alt=item?.title;
-  cartNode.querySelector('#cart-title').textContent = item?.title;
-  cartNode.querySelector('#cart-quantity').textContent = `Quantity: ${item?.quantity}`;
-  cartNode.querySelector('.remove-btn').setAttribute('date-id', item.id);
-
+  cartNode.querySelector('#cart-title').textContent = "You don't have anything in the cart!";
   const removeBtn = cartNode.querySelector('.remove-btn');
-  removeBtn.addEventListener('click', ()=>{
-  const index = cart.findIndex(prod=>prod.id===item.id);
-  cart = cart?.splice(index, 1);
-  console.log(cart);
-  })
+  const imgContainer = cartNode.querySelector('#img-container');
+  imgContainer.classList.add('hidden');
+  removeBtn.classList.add('hidden');
+
 
   cartItems.append(cartNode);
 
 
-});
+}
+else{
+  cart.forEach(item => {
+    const cartNode = template.content.cloneNode(true);
+    cartNode.querySelector('#cart-img').src=item?.thumbnail;
+    cartNode.querySelector('#cart-img').alt=item?.title;
+    cartNode.querySelector('#cart-title').textContent = item?.title;
+    cartNode.querySelector('#cart-quantity').textContent = `Quantity: ${item?.quantity}`;
+    cartNode.querySelector('.remove-btn').setAttribute('data-id', item.id);
+
+    const removeBtn = cartNode.querySelector('.remove-btn');
+    removeBtn.addEventListener('click', ()=>{
+        cart = cart.filter(prod=>prod.id!==item.id);
+        console.log(cart);
+        localStorage.setItem('cart', JSON.stringify(cart));
+        location.reload();
+
+    })
+
+    cartItems.append(cartNode);
+
+
+  });
+}
+
 
 
 const menuToggle = document.getElementById('menu-toggle');
