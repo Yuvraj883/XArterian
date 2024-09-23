@@ -4,7 +4,7 @@
 
 For this project I have used API from https://openweathermap.org/api
 
-- **Hosted Link**: [View Weather App](https://weather-app-xartesian.netlify.app/)
+- **See Live**: [View Weather App](https://weather-app-xartesian.netlify.app/)
 
 #### Features
 - Search for weather by city
@@ -18,7 +18,7 @@ For this project I have used API from https://openweathermap.org/api
 The second assignment involves creating a fully functional e-commerce website. This project showcases product listings, a shopping cart, and checkout functionalities.
 I have used apis from https://dummyjson.com/docs/products for this project.
 
-- **Hosted Link**: [View E-commerce Website](https://app.netlify.com/sites/zamazor-xarterian/overview)
+- **See Live**: [View E-commerce Website](https://app.netlify.com/sites/zamazor-xarterian/overview)
 
 #### Features
 - Browse products
