@@ -19,40 +19,62 @@
       <span class="font-bold text-xl font-serif"><a href="/">Zomarzo</a> </span>
 
       <!-- Hamburger Menu  -->
+
+
+<div class="flex gap-4 items-center md:hidden">
+  <div id="user-button-mobile"></div>
+
       <button id="menu-toggle" class="block md:hidden text-gray-700 focus:outline-none">
+
         <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
           <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7" />
         </svg>
+
+
       </button>
+      </div>
+
 
       <!-- Navigation Links -->
+
       <ul id="menu" class="hidden md:flex gap-6 font-semibold">
         <li class="cursor-pointer hover:text-blue-500"><a href="/">Home</a></li>
-        <li class="cursor-pointer hover:text-blue-500"><a href="./pages/shop.html">Shop</a></li></li>
+        <li class="cursor-pointer hover:text-blue-500"><a href="./pages/shop.html">Shop</a></li>
+        </li>
         <li class="cursor-pointer hover:text-blue-500"><a href="./pages/contact-us.html">Contact Us</a></li>
         <li class="cursor-pointer hover:text-blue-500"><a href="./pages/usercart.html">Cart</a></li>
+        <li id="user-button"></li>
+
       </ul>
+
     </nav>
 
     <!-- Mobile Menu (Dropdown) -->
+
     <ul id="mobile-menu" class="hidden flex-col gap-4 mt-4 md:hidden bg-slate-100 px-8 py-4">
       <li class="cursor-pointer hover:text-blue-500"><a href="/">Home</a></li>
-      <li class="cursor-pointer hover:text-blue-500"><a href="./pages/shop.html">Shop</a></li></li>
+      <li class="cursor-pointer hover:text-blue-500"><a href="./pages/shop.html">Shop</a></li>
+      </li>
       <li class="cursor-pointer hover:text-blue-500"><a href="./pages/contact-us.html">Contact Us</a></li>
       <li class="cursor-pointer hover:text-blue-500"><a href="./pages/usercart.html">Cart</a></li>
+
+
     </ul>
 
     <!-- Nav bar End -->
     <!-- Hero Section -->
     <section class="bg-white">
-      <div class="relative overflow-hidden bg-cover bg-center" style="background-image: url('./public/black-friday-elements-assortment.jpg'); height: 90vh;">
+      <div class="relative overflow-hidden bg-cover bg-center"
+        style="background-image: url('./public/black-friday-elements-assortment.jpg'); height: 90vh;">
         <div class="absolute inset-0 bg-black bg-opacity-50"></div>
 
         <div class="container mx-auto px-6 md:px-12 lg:px-16 h-full flex items-center">
           <div class="relative z-10 text-white max-w-2xl">
             <h1 class="text-4xl md:text-6xl font-bold mb-6">Discover Our Exclusive Collection</h1>
-            <p class="text-lg md:text-xl mb-8">Upgrade your style with the latest trends. Shop now and enjoy exclusive offers on premium products!</p>
-            <a href="./pages/shop.html" class="bg-green-500 hover:bg-green-600 text-white py-3 px-6 rounded-md text-lg font-semibold">Shop Now</a>
+            <p class="text-lg md:text-xl mb-8">Upgrade your style with the latest trends. Shop now and enjoy exclusive
+              offers on premium products!</p>
+            <a href="./pages/shop.html"
+              class="bg-green-500 hover:bg-green-600 text-white py-3 px-6 rounded-md text-lg font-semibold">Shop Now</a>
           </div>
         </div>
       </div>
@@ -101,7 +123,7 @@
   </div>
   <script type="module" src="/main.js"></script>
 </body>
- <footer class="bg-gray-800 text-gray-300 py-10">
+<footer class="bg-gray-800 text-gray-300 py-10">
   <div class="container mx-auto grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 p-4">
 
 
@@ -142,7 +164,8 @@
       <h3 class="text-white text-xl font-semibold mb-4">Newsletter</h3>
       <p class="text-sm mb-4">Subscribe to our newsletter to get the latest updates and offers.</p>
       <form>
-        <input type="email" placeholder="Your email" class="w-full px-3 py-2 mb-4 text-gray-800 rounded focus:outline-none">
+        <input type="email" placeholder="Your email"
+          class="w-full px-3 py-2 mb-4 text-gray-800 rounded focus:outline-none">
         <button class="w-full bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600 transition-colors">
           Subscribe
         </button>
