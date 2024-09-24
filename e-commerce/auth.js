@@ -1,4 +1,5 @@
-import { Clerk } from "@clerk/clerk-js";
+import { Clerk } from '../node_modules/@clerk/clerk-js/dist/clerk.js'; 
+
 
 //Authentication using clerk
 const clerkPubKey = import.meta.env.VITE_CLERK_PUBLISHABLE_KEY;
