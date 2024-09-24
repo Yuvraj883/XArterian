@@ -10,7 +10,7 @@
   },
   "devDependencies": {
     "tailwindcss": "^3.4.12",
-    "vite": "^5.4.1"
+    "vite": "^5.4.7"
   },
   "dependencies": {
     "@clerk/clerk-js": "^5.22.3"
