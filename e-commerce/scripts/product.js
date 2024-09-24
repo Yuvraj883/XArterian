@@ -1,8 +1,9 @@
-import { addToCart } from "./addToCart";
+import { addToCart } from "./addToCart.js";
 const path = window.location.search;
 const urlParams = new URLSearchParams(path);
 const productId = urlParams.get('id');
 
+console.log("Product page")
 
 const URL = `https://dummyjson.com/products/${productId}`;
 
