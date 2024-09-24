@@ -38,7 +38,7 @@ fetch(URL)
         const id = product.id;
         const productTitle = product?.title
         const productThumbnail = product?.thumbnail;
-        const productPrice = product?.thumbnail;
+        const productPrice = product?.price;
         let quantity =1;
 
         addToCart(id, productTitle, productThumbnail, productPrice, quantity);
