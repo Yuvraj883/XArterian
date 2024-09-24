@@ -1,3 +1,4 @@
+import { addToCart } from "./addToCart";
 const path = window.location.search;
 const urlParams = new URLSearchParams(path);
 const productId = urlParams.get('id');
@@ -27,6 +28,11 @@ fetch(URL).then((res)=>{
   productNode.querySelector('#product-stock').textContent = `Only ${productDetails?.stock} left in stock`;
   productNode.querySelector('#product-reviews').textContent = ` ${productDetails?.reviews?.length} Reviews`
   const reviewSection = productNode.querySelector("#product-reviews-section");
+  const addToCartBtn = productNode.querySelector('#add-to-cart-btn');
+  addToCartBtn.addEventListener('click', ()=>{
+    // productDetails?.stock = productDetails?.stock-1;
+    addToCart(productDetails?.id, productDetails?.title, productDetails?.thumbnail, productDetails?.price );
+  })
 
   productDetails?.reviews.forEach(review=>{
     const container = document?.createElement('div');
@@ -62,6 +68,9 @@ fetch(URL).then((res)=>{
         tagsContainer.appendChild(tagElement);
 
       })
+
+
+
 
   productDetailsPage.append(productNode);
 
