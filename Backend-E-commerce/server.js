@@ -21,6 +21,9 @@ mongoose.connect(process.env.MONGO_URI, {
 
 // Routes
 app.use('/api/auth', authRoutes);
+app.get('/', (req, res)=>{
+  return res.send("Welcome to my Ecommerce site!!");
+})
 
 // Start the server
 const PORT = process.env.PORT || 5000;
