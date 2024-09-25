@@ -1,12 +1,6 @@
-import { Clerk } from '@clerk/clerk-js';
+window.addEventListener('load', async function () {
 
-
-//Authentication using clerk
-const clerkPubKey = import.meta.env.VITE_CLERK_PUBLISHABLE_KEY;
-
-const clerkFunction = async()=>{
-  const clerk = new Clerk(clerkPubKey);
-  await clerk.load({
+  await Clerk.load({
     afterSignInUrl: "/",
     afterSignUpUrl: "/",
     signInUrl: "/login",
@@ -17,14 +11,14 @@ const clerkFunction = async()=>{
     polling: true, // enable session polling
   });
 
-  if (clerk.user) {
+  if (Clerk.user) {
 
     const userButtonDiv =
       document.getElementById("user-button");
       const userButtonMobileDiv =     document.getElementById("user-button-mobile");
 
-    clerk.mountUserButton(userButtonDiv);
-    clerk.mountUserButton(userButtonMobileDiv);
+    Clerk.mountUserButton(userButtonDiv);
+    Clerk.mountUserButton(userButtonMobileDiv);
   } else {
     document.getElementById("app").innerHTML = `
       <div id="sign-in"></div>
@@ -33,12 +27,7 @@ const clerkFunction = async()=>{
     const signInDiv =
       document.getElementById("sign-in");
 
-    clerk.mountSignIn(signInDiv);
+    Clerk.mountSignIn(signInDiv);
   }
 
-}
-clerkFunction();
-
-
-
-
+})
