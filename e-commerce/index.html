@@ -5,6 +5,8 @@
   <meta charset="UTF-8" />
   <!-- <link rel="icon" type="image/svg+xml" href="/vite.svg" /> -->
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <!-- <meta http-equiv="Content-Security-Policy" content="default-src 'self' fond-snapper-39.accounts.dev fond-snapper-39.clerk.accounts.dev cdn.jsdelivr.net scdn.clerk.com; script-src 'self' 'unsafe-inline' 'unsafe-eval' scdn.clerk.com cdn.jsdelivr.net;"> -->
+
   <script src="https://cdn.tailwindcss.com"></script>
   <script
   async
@@ -131,19 +133,27 @@
   <script type="module" src="/main.js"></script>
   <!-- <script type="module" src="/auth.js"></script> -->
 
-<script>
+<script >
   window.addEventListener('load', async function () {
 
-  await Clerk.load({
-    afterSignInUrl: "/",
-    afterSignUpUrl: "/",
-    signInUrl: "/login",
-    signUpUrl: "/signup",
-    navigate: (to) => {
-      window.location.href = to;
-    },
-    polling: true, // enable session polling
-  });
+    await Clerk.load({
+  afterSignInUrl: "/",
+  afterSignUpUrl: "/",
+  signInUrl: "./pages/login.html",
+  signUpUrl: "./pages/signup.html",
+  afterSignOutUrl: "/pages/login.html",  // Redirect to login after sign out
+  navigate: (to) => {
+
+    setTimeout(() => {
+      if (to.includes('fond-snapper')) {
+        window.location.href = '/pages/login.html';  // Force redirect to login page if wrong URL detected
+      } else {
+        window.location.href = to;  // Redirect normally if not an unwanted URL
+      }
+    }, 200);
+  },
+  polling: true,  // enable session polling
+});
 
   if (Clerk.user) {
 
@@ -155,7 +165,8 @@
     Clerk.mountUserButton(userButtonMobileDiv);
   } else {
     document.getElementById("app").innerHTML = `
-      <div id="sign-in"></div>
+    <div style="margin: auto; height: 500px; padding-top: 18px;" id="sign-in"></div>
+
     `;
 
     const signInDiv =
