@@ -1,5 +1,5 @@
 import { addToCart } from "./scripts/addToCart.js";
-import {verifyAuth} from './scripts/verifyAuthStatus.js'
+// import {verifyAuth} from './scripts/verifyAuthStatus.js'
 
 
 //API Calling
