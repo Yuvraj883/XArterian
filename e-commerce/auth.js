@@ -41,15 +41,17 @@ async function login() {
       return;
     }
 
+
     const data = await resp.json();
     const token = data.token;
-    console.log(token); // Do something with the token (e.g., store in localStorage)
+    localStorage.setItem('token', JSON.stringify(data?.token));
+    
   } else {
     alert('Please enter both email and password.');
   }
 }
 
-// Simple signup function
+
 async function signup() {
   const name = document.getElementById('signupName').value;
   const email = document.getElementById('signupEmail').value;
@@ -59,7 +61,7 @@ async function signup() {
     const resp = await fetch(`${url}/api/auth/register`, {
       method: 'POST',
       headers: {
-        'Content-Type': 'application/json', // Set Content-Type header for JSON
+        'Content-Type': 'application/json',
       },
       body: JSON.stringify({
         name,
@@ -75,7 +77,7 @@ async function signup() {
 
     const data = await resp.json();
     console.log(data); // Handle the registration response
-    alert(`Signed up with Name: ${name}, Email: ${email}`);
+    localStorage.setItem('token', JSON.stringify(data?.token));
   } else {
     alert('Please fill all the fields.');
   }
