@@ -1,4 +1,5 @@
 import { addToCart } from "./scripts/addToCart.js";
+import {verifyAuth} from './scripts/verifyAuthStatus.js'
 
 
 //API Calling
@@ -62,21 +63,28 @@ menuToggle.addEventListener('click', () => {
 mobileMenu.classList.toggle('hidden');
 })
 
-const logInBtn = document.querySelector('#log-in-btn');
-const logOutBtn = document.querySelector('#log-out-btn');
+// const logInBtn = document.querySelector('.log-in-btn');
+// const logOutBtn = document.querySelector('.log-out-btn');
 
-const token = JSON.parse(localStorage.getItem('token'));
+// if(logInBtn && logOutBtn){
+// const token = JSON.parse(localStorage.getItem('token'));
 
-if(token){
-  logInBtn.classList.add('hidden');
-}
-else{
-  logOutBtn.classList.add('hidden')
-}
+// if(token){
+//   logInBtn.classList.add('hidden');
+//   logOutBtn.classList.remove('hidden');
+// }
+// else{
+//   logOutBtn.classList.add('hidden');
+//   logInBtn.classList.remove('hidden');
 
-logOutBtn.addEventListener('click', ()=>{
-  localStorage.removeItem('token');
-});
+// }
+
+// logOutBtn.addEventListener('click', ()=>{
+//   localStorage.removeItem('token');
+//   window.location.reload();
+// });
+// }
 
 
 
+// verifyAuth();
