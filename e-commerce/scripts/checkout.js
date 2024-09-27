@@ -5,6 +5,13 @@ const template = document.getElementById('product-container');
 const total = document.getElementById('total');
 let totalSum = 0;
 
+const token = JSON.parse(localStorage.getItem('token'));
+console.log(token);
+
+if(token!=null){
+
+
+
 if(cart.length>0){
 
   cart.forEach(element => {
@@ -18,6 +25,9 @@ if(cart.length>0){
   });
 
 total.textContent = `$${totalSum}`
+}
 
-
+}
+else{
+  window.location.href="http://localhost:5173/pages/authenticate.html";
 }
