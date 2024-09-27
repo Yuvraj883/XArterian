@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Login/Sign Up</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-100">
+
+  <!-- Container -->
+  <div class="flex justify-center items-center h-screen">
+    <div class="w-full max-w-md">
+
+      <!-- Card for Login/Sign Up -->
+      <div class="bg-white shadow-lg rounded-lg px-8 py-8">
+
+        <!-- Tab Toggle Buttons -->
+        <div class="flex justify-between mb-6">
+          <button id="loginTab" class="w-1/2 py-2 text-center text-lg font-semibold text-blue-600 border-b-2 border-blue-600 focus:outline-none">Login</button>
+          <button id="signupTab" class="w-1/2 py-2 text-center text-lg font-semibold text-gray-600 focus:outline-none">Sign Up</button>
+        </div>
+
+        <!-- Login Form -->
+        <div id="loginForm">
+          <h2 class="text-2xl font-bold text-gray-700 mb-6 text-center">Login</h2>
+          <form>
+            <div class="mb-4">
+              <label for="loginEmail" class="block text-gray-600 text-sm font-semibold mb-2">Email</label>
+              <input id="loginEmail" type="email" class="w-full px-4 py-2 border rounded-lg text-gray-700 focus:outline-none focus:ring-2 focus:ring-blue-400" placeholder="Enter your email">
+            </div>
+            <div class="mb-6">
+              <label for="loginPassword" class="block text-gray-600 text-sm font-semibold mb-2">Password</label>
+              <input id="loginPassword" type="password" class="w-full px-4 py-2 border rounded-lg text-gray-700 focus:outline-none focus:ring-2 focus:ring-blue-400" placeholder="Enter your password">
+            </div>
+            <button type="button" class="w-full py-2 bg-blue-600 text-white font-semibold rounded-lg hover:bg-blue-700 focus:outline-none" onclick="login()">Login</button>
+          </form>
+        </div>
+
+        <!-- Sign Up Form -->
+        <div id="signupForm" class="hidden">
+          <h2 class="text-2xl font-bold text-gray-700 mb-6 text-center">Sign Up</h2>
+          <form>
+            <div class="mb-4">
+              <label for="signupName" class="block text-gray-600 text-sm font-semibold mb-2">Name</label>
+              <input id="signupName" type="text" class="w-full px-4 py-2 border rounded-lg text-gray-700 focus:outline-none focus:ring-2 focus:ring-blue-400" placeholder="Enter your name">
+            </div>
+            <div class="mb-4">
+              <label for="signupEmail" class="block text-gray-600 text-sm font-semibold mb-2">Email</label>
+              <input id="signupEmail" type="email" class="w-full px-4 py-2 border rounded-lg text-gray-700 focus:outline-none focus:ring-2 focus:ring-blue-400" placeholder="Enter your email">
+            </div>
+            <div class="mb-6">
+              <label for="signupPassword" class="block text-gray-600 text-sm font-semibold mb-2">Password</label>
+              <input id="signupPassword" type="password" class="w-full px-4 py-2 border rounded-lg text-gray-700 focus:outline-none focus:ring-2 focus:ring-blue-400" placeholder="Enter your password">
+            </div>
+            <button type="button" class="w-full py-2 bg-green-600 text-white font-semibold rounded-lg hover:bg-green-700 focus:outline-none" onclick="signup()">Sign Up</button>
+          </form>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+  <script src="../auth.js">
+    // Toggle between Login and Sign Up
+   
+  </script>
+
+</body>
+</html>
