@@ -44,8 +44,15 @@ async function login() {
 
     const data = await resp.json();
     const token = data.token;
-    localStorage.setItem('token', JSON.stringify(data?.token));
-    
+    console.log(token);
+
+    localStorage.setItem('token', JSON.stringify(token));
+    if(token){
+      window.location.href="http://localhost:5173/pages/checkout.html";
+
+    }
+
+
   } else {
     alert('Please enter both email and password.');
   }
@@ -78,6 +85,11 @@ async function signup() {
     const data = await resp.json();
     console.log(data); // Handle the registration response
     localStorage.setItem('token', JSON.stringify(data?.token));
+    if(token){
+      window.location.href="http://localhost:5173/pages/checkout.html";
+
+    }
+
   } else {
     alert('Please fill all the fields.');
   }
