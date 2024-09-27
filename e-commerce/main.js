@@ -76,6 +76,7 @@ else{
 
 logOutBtn.addEventListener('click', ()=>{
   localStorage.removeItem('token');
+  window.location.reload();
 });
 
 
