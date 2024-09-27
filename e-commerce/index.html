@@ -46,13 +46,14 @@
 
       <!-- Navigation Links -->
 
-      <ul id="menu" class="hidden md:flex gap-6 font-semibold">
+      <ul id="menu" class="hidden md:flex gap-6 font-semibold items-center">
         <li class="cursor-pointer hover:text-blue-500"><a href="/">Home</a></li>
         <li class="cursor-pointer hover:text-blue-500"><a href="./pages/shop.html">Shop</a></li>
         </li>
         <li class="cursor-pointer hover:text-blue-500"><a href="./pages/contact-us.html">Contact Us</a></li>
         <li class="cursor-pointer hover:text-blue-500"><a href="./pages/usercart.html">Cart</a></li>
-        <li id="user-button"></li>
+        <a id="log-in-btn" class="bg-blue-500 cursor-pointer text-white font-bold px-4 py-2 rounded-md" href="./pages/authenticate.html"><li >Log In</li></a>
+        <a id="log-out-btn" class="bg-red-500 cursor-pointer text-white font-bold px-4 py-2 rounded-md " ><li >Log Out</li></a>
 
       </ul>
 
@@ -63,7 +64,7 @@
     <ul id="mobile-menu" class="hidden flex-col gap-4 mt-4 md:hidden bg-slate-100 px-8 py-4">
       <li class="cursor-pointer hover:text-blue-500"><a href="/">Home</a></li>
       <li class="cursor-pointer hover:text-blue-500"><a href="./pages/shop.html">Shop</a></li>
-      </li>
+      
       <li class="cursor-pointer hover:text-blue-500"><a href="./pages/contact-us.html">Contact Us</a></li>
       <li class="cursor-pointer hover:text-blue-500"><a href="./pages/usercart.html">Cart</a></li>
 
@@ -118,9 +119,9 @@
           </span>
           <span class="flex justify-between w-full">
             <button
-              class="border-2 border-gray-600 text-black hover:text-white rounded-md hover:bg-gray-600 px-2 py-1 mt-2 add-to-cart">Add
+              class="border-2 cursor-pointer border-gray-600 text-black hover:text-white rounded-md hover:bg-gray-600 px-2 py-1 mt-2 add-to-cart">Add
               to Cart</button>
-            <a class="border-2 border-gray-600 bg-gray-600 text-white hover:text-black rounded-md hover:bg-white px-2 py-1 mt-2"
+            <a class="border-2 cursor-pointer border-gray-600 bg-gray-600 text-white hover:text-black rounded-md hover:bg-white px-2 py-1 mt-2"
               id="product-page-link" href="">View Product</a>
 
           </span>
