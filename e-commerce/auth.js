@@ -47,8 +47,10 @@ async function login() {
     console.log(token);
 
     localStorage.setItem('token', JSON.stringify(token));
-    if(token){
-      window.location.href="http://localhost:5173/pages/checkout.html";
+
+    const authKey = JSON.parse(localStorage.getItem('token'));
+    if(authKey){
+      window.location.href="http://localhost:5173/pages/usercart.html";
 
     }
 
@@ -85,8 +87,10 @@ async function signup() {
     const data = await resp.json();
     console.log(data); // Handle the registration response
     localStorage.setItem('token', JSON.stringify(data?.token));
-    if(token){
-      window.location.href="http://localhost:5173/pages/checkout.html";
+    const authKey = JSON.parse(localStorage.getItem('token'));
+
+    if(authKey){
+      window.location.href="http://localhost:5173/pages/usercart.html";
 
     }
 
