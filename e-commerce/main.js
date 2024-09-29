@@ -1,4 +1,5 @@
 import { addToCart } from "./scripts/addToCart.js";
+// import {verifyAuth} from './scripts/verifyAuthStatus.js'
 
 
 //API Calling
@@ -66,7 +67,8 @@ const logOutBtnMobile = document.querySelector('#log-out-btn-mobile');
 const logInBtn = document.querySelector('#log-in-btn');
 const logOutBtn = document.querySelector('#log-out-btn');
 
-const token = JSON.parse(localStorage.getItem('token'));
+// if(logInBtn && logOutBtn){
+// const token = JSON.parse(localStorage.getItem('token'));
 
 if(token){
   logInBtn.classList.add('hidden');
@@ -89,3 +91,4 @@ logOutBtnMobile.addEventListener('click', ()=>{
 
 
 
+// verifyAuth();
