@@ -34,6 +34,8 @@
   <div id="user-button-mobile"></div>
 
       <button id="menu-toggle" class="block md:hidden text-gray-700 focus:outline-none">
+        <a id="log-in-btn-mobile" class="bg-blue-500 cursor-pointer text-white font-bold px-4 py-2 rounded-md md:hidden" href="./pages/authenticate.html"><li >Log In</li></a>
+        <a id="log-out-btn-mobile" class="bg-red-500 cursor-pointer text-white font-bold px-4 py-2 rounded-md md:hidden" ><li >Log Out</li></a>
 
         <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
           <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7" />
@@ -64,7 +66,7 @@
     <ul id="mobile-menu" class="hidden flex-col gap-4 mt-4 md:hidden bg-slate-100 px-8 py-4">
       <li class="cursor-pointer hover:text-blue-500"><a href="/">Home</a></li>
       <li class="cursor-pointer hover:text-blue-500"><a href="./pages/shop.html">Shop</a></li>
-      
+
       <li class="cursor-pointer hover:text-blue-500"><a href="./pages/contact-us.html">Contact Us</a></li>
       <li class="cursor-pointer hover:text-blue-500"><a href="./pages/usercart.html">Cart</a></li>
 
@@ -132,52 +134,8 @@
 
   </div>
   <script type="module" src="/main.js"></script>
-  <!-- <script type="module" src="/auth.js"></script> -->
+  <script type="module" src="./scripts/verifyAuthStatus.js"></script>
 
-<!-- <script >
-  window.addEventListener('load', async function () {
-
-    await Clerk.load({
-  afterSignInUrl: "/",
-  afterSignUpUrl: "/",
-  signInUrl: "./pages/login.html",
-  signUpUrl: "./pages/signup.html",
-  afterSignOutUrl: "/pages/login.html",  // Redirect to login after sign out
-  navigate: (to) => {
-
-    setTimeout(() => {
-      if (to.includes('fond-snapper')) {
-        window.location.href = '/pages/login.html';  // Force redirect to login page if wrong URL detected
-      } else {
-        window.location.href = to;  // Redirect normally if not an unwanted URL
-      }
-    }, 200);
-  },
-  polling: true,  // enable session polling
-});
-
-  if (Clerk.user) {
-
-    const userButtonDiv =
-      document.getElementById("user-button");
-      const userButtonMobileDiv =     document.getElementById("user-button-mobile");
-
-    Clerk.mountUserButton(userButtonDiv);
-    Clerk.mountUserButton(userButtonMobileDiv);
-  } else {
-    document.getElementById("app").innerHTML = `
-    <div style="margin: auto; height: 500px; padding-top: 18px;" id="sign-in"></div>
-
-    `;
-
-    const signInDiv =
-      document.getElementById("sign-in");
-
-    Clerk.mountSignIn(signInDiv);
-  }
-
-})
-</script> -->
 
 </body>
 <footer class="bg-gray-800 text-gray-300 py-10">
