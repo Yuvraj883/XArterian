@@ -68,15 +68,17 @@ const logInBtn = document.querySelector('#log-in-btn');
 const logOutBtn = document.querySelector('#log-out-btn');
 
 // if(logInBtn && logOutBtn){
-// const token = JSON.parse(localStorage.getItem('token'));
+const token = JSON.parse(localStorage.getItem('token'));
 
 if(token){
   logInBtn.classList.add('hidden');
   logInBtnMobile.classList.add('hidden');
+  logOutBtn.classList.remove('hidden');
 }
 else{
   logOutBtnMobile.classList.add('hidden');
   logOutBtn.classList.add('hidden');
+
 }
 
 logOutBtn.addEventListener('click', ()=>{
