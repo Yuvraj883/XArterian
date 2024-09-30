@@ -1,4 +1,5 @@
 const cart = JSON.parse(localStorage.getItem('cart'));
+const baseURL = window.location.origin;
 console.log(cart);
 const cartSummary = document.getElementById('cart-summary');
 const template = document.getElementById('product-container');
@@ -29,5 +30,5 @@ total.textContent = `$${totalSum}`
 
 }
 else{
-  window.location.href="http://localhost:5173/pages/authenticate.html";
+  window.location.href=`${baseURL}/pages/authenticate.html`;
 }
