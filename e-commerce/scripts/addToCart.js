@@ -1,4 +1,12 @@
+const baseURL = window.location.origin;
+
 export const addToCart = (productId, productTitle, productThumbnail, productPrice)=>{
+
+  const token = JSON.parse(localStorage.getItem('token'));
+
+  if(token){
+
+
 
   let cart = JSON.parse(localStorage.getItem('cart')) || [];
   const existingProduct = cart.find(item=>item.id===productId);
@@ -25,4 +33,8 @@ export const addToCart = (productId, productTitle, productThumbnail, productPric
 
 
 }
-
+else{
+  alert(baseURL);
+  window.location.href=`${baseURL}/pages/authenticate.html`;
+}
+}
