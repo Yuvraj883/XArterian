@@ -1,4 +1,5 @@
 const url = 'https://xarterian.onrender.com';
+const baseURL = window.location.origin;
 
 const loginTab = document.getElementById('loginTab');
 const signupTab = document.getElementById('signupTab');
@@ -51,7 +52,7 @@ async function login() {
 
     const authKey = JSON.parse(localStorage.getItem('token'));
     if(authKey){
-      window.location.href="http://localhost:5173/pages/usercart.html";
+      window.location.href=`${baseURL}/pages/usercart.html`;
 
     }
 
@@ -92,7 +93,7 @@ async function signup() {
     const authKey = JSON.parse(localStorage.getItem('token'));
 
     if(authKey){
-      window.location.href="http://localhost:5173/pages/usercart.html";
+      window.location.href=`${baseURL}/pages/usercart.html`;
 
     }
 
