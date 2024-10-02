@@ -37,9 +37,22 @@ fetch(URL)
 
 
 function displayProducts(productsOnDisplay) {
+
+
+
   const template = document.querySelector('#product-card')
   const productList = document.querySelector('#product-list')
+
   productList.innerHTML = '';
+
+  if (productsOnDisplay.length === 0) {
+
+    const noProductMessage = document.createElement('div');
+    noProductMessage.textContent = "No available products right now!!";
+    noProductMessage.classList.add('text-center','text-semi-bold', 'text-lg', 'text-gray-500', 'mt-4'); // Add some styling as needed
+    productList.appendChild(noProductMessage);
+    return; // Exit the function early
+  }
   productsOnDisplay.forEach((product) => {
     const productNode = template.content.cloneNode(true)
 
