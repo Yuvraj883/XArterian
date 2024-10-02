@@ -26,7 +26,7 @@ function displayCategories(){
     const newOption = document.createElement('option');
     newOption.value = category;
     newOption.textContent = category;
-    newOption.classList.add('capitalize');
+    newOption.classList.add('capitalize','cursor-pointer');
     categoryFilters.appendChild(newOption);
     console.log(category);
   })
