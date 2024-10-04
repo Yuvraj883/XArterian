@@ -9,6 +9,7 @@ const URL = 'https://dummyjson.com/products/?limit=120'
 const productsPerPage = 12;
 let currentPage = 1;
 
+
 const searchQuery = document.querySelector('#search-input');
 const searchBtn = document.querySelector('#search-icon');
 
@@ -40,6 +41,7 @@ fetch(URL)
     console.error('Error fetching products:', e)
   })
 
+  let filteredCategoryProducts = products;
 
  //************Pagination *****************/
 
@@ -171,7 +173,7 @@ function filterProducts(query){
     return;
   }
 
-  const filteredProducts = products?.filter((product)=>{
+  const filteredProducts = filteredCategoryProducts?.filter((product)=>{
     return product?.title.toLowerCase().includes(query.toLowerCase());
   })
   console.log(filteredProducts)
@@ -226,7 +228,6 @@ function displayCategories(){
 
   })
 }
-let filteredCategoryProducts = [];
 
 function filteredCategoryList(category){
   console.log('function called');
@@ -235,6 +236,7 @@ function filteredCategoryList(category){
     return;
   }
   if(category==="All"){
+  filteredCategoryProducts = products;
   paginate(currentPage, products);
   return;
 
