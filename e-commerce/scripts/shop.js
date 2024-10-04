@@ -4,26 +4,33 @@ import { addToCart } from '../scripts/addToCart.js'
 //API Calling
 const categoryURL = 'https://dummyjson.com/products/category-list';
 
-const URL = 'https://dummyjson.com/products/?limit=100'
+const URL = 'https://dummyjson.com/products/?limit=120'
+
+const productsPerPage = 12;
+let currentPage = 1;
 
 const searchQuery = document.querySelector('#search-input');
 const searchBtn = document.querySelector('#search-icon');
-searchQuery.value = '';
+
 searchBtn.addEventListener('click', ()=>{
   filterProducts(searchQuery.value);
 })
 
 
 
-let products;
+let products=[];
 
 fetch(URL)
   .then((res) => res.json())
   .then((data) => {
     products = data.products
     console.log(products)
-    if(searchQuery.value==''){
-      displayProducts(products);
+    setUpPagination();
+    paginate(currentPage);
+
+
+    if(searchQuery.value===''){
+
       return;
 
     }
@@ -34,7 +41,57 @@ fetch(URL)
   })
 
 
+ //************Pagination *****************/
 
+function paginate(currPage){
+  if(!products || products.length===0){
+    return ;
+  }
+  const startIndex = (currPage-1)*productsPerPage;
+  const endIndex = (currPage)*productsPerPage;
+  const productsList = products.slice(startIndex, endIndex);
+  console.log("Sliced products: ",productsList);
+  displayProducts(productsList);
+}
+
+function setUpPagination(){
+  if(!products || products.length===0){
+    return ;
+  }
+  const numberOfPages = Math.ceil(products?.length/productsPerPage);
+
+  const paginationBtns = document.getElementById('paginationBtns');
+  if(searchQuery.value !=="" || categoryFilters.value !=='All'){
+    console.log('true')
+    paginationBtns.classList.add('hidden');
+    return;
+  }
+  console.log('false')
+
+  paginationBtns.classList.remove('hidden');
+  paginationBtns.innerHTML = '';
+
+  for(let i=1; i<=numberOfPages; i++){
+    let newBtn = document.createElement('button');
+    newBtn.textContent = i;
+    newBtn.classList.add('text-blue-500', 'text-lg', 'font-semibold', 'px-3','py-1', 'm-1', 'hover:bg-blue-500', 'hover:text-white' );
+    if(i===currentPage){
+      newBtn.classList.add('bg-blue-500', 'text-white')
+    }
+    newBtn.addEventListener('click', ()=>{
+      currentPage = i;
+      paginate(currentPage);
+      setUpPagination();
+
+    });
+    paginationBtns.appendChild(newBtn);
+  }
+
+}
+
+
+
+// ******************Product display *******************
 
 function displayProducts(productsOnDisplay) {
 
@@ -120,6 +177,9 @@ function filterProducts(query){
     return product?.title.toLowerCase().includes(query.toLowerCase());
   })
   console.log(filteredProducts)
+  currentPage = 1;
+
+  // paginate(currentPage, filteredProducts);
   displayProducts(filteredProducts);
 }
 
@@ -151,21 +211,21 @@ async function fetchCategoryList(){
   }
 }
 fetchCategoryList();
-console.log(categoryList);
+
 
 const categoryFilters = document.querySelector('#category-filters');
 
 function displayCategories(){
-  // const template = document.querySelector('#category-template');
+
 
   categoryList?.forEach((category)=>{
-    // const tempNode = template.content.cloneNode(true);
+
     const newOption = document.createElement('option');
     newOption.value = category;
     newOption.textContent = category;
     newOption.classList.add('capitalize','cursor-pointer');
     categoryFilters.appendChild(newOption);
-    // console.log(category);
+
   })
 }
 
@@ -176,7 +236,7 @@ function filteredCategoryList(category){
     return;
   }
   if(category==="All"){
-  displayProducts(products);
+  paginate(currentPage);
   return;
 
   }
@@ -187,6 +247,9 @@ function filteredCategoryList(category){
   displayProducts(filteredCategoryProducts);
 }
 
-categoryFilters.addEventListener('change', ()=>{filteredCategoryList(categoryFilters.value)});
+categoryFilters.addEventListener('change', ()=>{
+  filteredCategoryList(categoryFilters.value)
+  setUpPagination();
+});
 
 
