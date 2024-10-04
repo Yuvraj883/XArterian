@@ -2,7 +2,7 @@ import { addToCart } from './scripts/addToCart.js'
 // import {verifyAuth} from './scripts/verifyAuthStatus.js'
 
 //API Calling
-const URL = 'https://dummyjson.com/products/?limit=20'
+const URL = 'https://dummyjson.com/products/?limit=12'
 
 const searchQuery = document.querySelector('#search-input');
 const searchBtn = document.querySelector('#search-icon');
