@@ -2,42 +2,36 @@ import { addToCart } from './scripts/addToCart.js'
 // import {verifyAuth} from './scripts/verifyAuthStatus.js'
 
 //API Calling
-const URL = 'https://dummyjson.com/products/?limit=12'
+// const URL = 'https://dummyjson.com/products/?limit=12'
+const URL = 'http://localhost:5000/api/products/?limit=6'
 
-const searchQuery = document.querySelector('#search-input');
-const searchBtn = document.querySelector('#search-icon');
-searchQuery.value = '';
-searchBtn.addEventListener('click', ()=>{
-  filterProducts(searchQuery.value);
+const searchQuery = document.querySelector('#search-input')
+const searchBtn = document.querySelector('#search-icon')
+searchQuery.value = ''
+searchBtn.addEventListener('click', () => {
+  filterProducts(searchQuery.value)
 })
 
-
-
-let products;
+let products = []
 
 fetch(URL)
   .then((res) => res.json())
   .then((data) => {
-    products = data.products
-    console.log(products)
-    if(searchQuery.value==''){
-      displayProducts(products);
-      return;
-
+    products = data
+    console.log(data)
+    if (searchQuery.value == '') {
+      displayProducts(products)
+      return
     }
-
   })
   .catch((e) => {
     console.error('Error fetching products:', e)
   })
 
-
-
-
 function displayProducts(productsOnDisplay) {
   const template = document.querySelector('#product-card')
   const productList = document.querySelector('#product-list')
-  productList.innerHTML = '';
+  productList.innerHTML = ''
   productsOnDisplay.forEach((product) => {
     const productNode = template.content.cloneNode(true)
 
@@ -93,23 +87,22 @@ function displayProducts(productsOnDisplay) {
   })
 }
 
-
-
-function filterProducts(query){
-  if(!products || products.length ===0){
-    console.log("Products are not available...");
-    return;
+function filterProducts(query) {
+  if (!products || products.length === 0) {
+    console.log('Products are not available...')
+    return
   }
 
-  const filteredProducts = products?.filter((product)=>{
-    return product?.title.toLowerCase().includes(query.toLowerCase());
+  const filteredProducts = products?.filter((product) => {
+    return product?.title.toLowerCase().includes(query.toLowerCase())
   })
   console.log(filteredProducts)
-  displayProducts(filteredProducts);
+  displayProducts(filteredProducts)
 }
 
-searchQuery.addEventListener('input', ()=>{ filterProducts(searchQuery.value)});
-
+searchQuery.addEventListener('input', () => {
+  filterProducts(searchQuery.value)
+})
 
 const menuToggle = document.getElementById('menu-toggle')
 const mobileMenu = document.getElementById('mobile-menu')
