@@ -7,7 +7,8 @@ const Product = require('../models/Product');
 
 router.get('/', async (req, res)=>{
   try{
-    const products = await Product.find();
+    const limit = req.query.limit || 12;
+    const products = await Product.find().limit(limit);
     res.send(products);
   }
   catch(error){
