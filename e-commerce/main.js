@@ -3,7 +3,7 @@ import { addToCart } from './scripts/addToCart.js'
 
 //API Calling
 // const URL = 'https://dummyjson.com/products/?limit=12'
-const URL = 'http://localhost:5000/api/products/?limit=6'
+const URL = 'http://localhost:5000/api/products/?limit=12'
 
 const searchQuery = document.querySelector('#search-input')
 const searchBtn = document.querySelector('#search-icon')
