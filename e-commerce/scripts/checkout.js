@@ -24,6 +24,11 @@ if(cart.length>0){
     cartSummary.append(cartNode);
 
   });
+  const checkoutBtn = document.getElementById('checkout-btn');
+  checkoutBtn.addEventListener('click', ()=>{
+    alert(cart);
+    localStorage.setItem('cart', JSON.stringify([]));
+  })
 
 total.textContent = `$${totalSum}`
 }
