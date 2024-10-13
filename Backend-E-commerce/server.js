@@ -2,6 +2,7 @@ const express = require('express');
 const mongoose = require('mongoose');
 const dotenv = require('dotenv');
 const authRoutes = require('./routes/authRoutes');
+const productsRoute = require('./routes/products');
 const cors = require('cors');
 
 // Load environment variables
@@ -29,6 +30,7 @@ mongoose.connect(process.env.MONGO_URI, {
 
 // Routes
 app.use('/api/auth', authRoutes);
+app.use('/api/products', productsRoute ); 
 app.get('/', (req, res)=>{
   return res.send("Welcome to my Ecommerce site!!");
 })
