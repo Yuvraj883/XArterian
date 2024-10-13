@@ -2,113 +2,113 @@ import { addToCart } from '../scripts/addToCart.js'
 // import {verifyAuth} from './scripts/verifyAuthStatus.js'
 
 //API Calling
-const categoryURL = 'https://dummyjson.com/products/category-list';
+const categoryURL = 'http://localhost:5000/api/categories';
 
-const URL = 'https://dummyjson.com/products/?limit=120'
+const URL = 'https://x-arterian.vercel.app/api/products/?limit=120';
 
-const productsPerPage = 12;
-let currentPage = 1;
+const productsPerPage = 12
+let currentPage = 1
 
+const searchQuery = document.querySelector('#search-input')
+const searchBtn = document.querySelector('#search-icon')
 
-const searchQuery = document.querySelector('#search-input');
-const searchBtn = document.querySelector('#search-icon');
-
-searchBtn.addEventListener('click', ()=>{
-  filterProducts(searchQuery.value);
+searchBtn.addEventListener('click', () => {
+  filterProducts(searchQuery.value)
 })
 
-
-
-let products=[];
+let products = []
 
 fetch(URL)
   .then((res) => res.json())
   .then((data) => {
-    products = data.products
+    products = data
     console.log(products)
-    setUpPagination(products);
-    paginate(currentPage, products);
+    setUpPagination(products)
+    paginate(currentPage, products)
 
-
-    if(searchQuery.value===''){
-
-      return;
-
+    if (searchQuery.value === '') {
+      return
     }
-
   })
   .catch((e) => {
     console.error('Error fetching products:', e)
   })
 
-  let filteredCategoryProducts = products;
+let filteredCategoryProducts = products
 
- //************Pagination *****************/
+//************Pagination *****************/
 
-function paginate(currPage, productsList){
-  if(!products || products.length===0){
-    return ;
+function paginate(currPage, productsList) {
+  if (!products || products.length === 0) {
+    return
   }
-  const startIndex = (currPage-1)*productsPerPage;
-  const endIndex = (currPage)*productsPerPage;
-  const productsToRender = productsList.slice(startIndex, endIndex);
-  console.log("Sliced products: ",productsToRender);
-  displayProducts(productsToRender);
+  const startIndex = (currPage - 1) * productsPerPage
+  const endIndex = currPage * productsPerPage
+  const productsToRender = productsList.slice(startIndex, endIndex)
+  console.log('Sliced products: ', productsToRender)
+  displayProducts(productsToRender)
 }
 
-function setUpPagination(productsList){
-  if(!products || products.length===0){
-    return ;
+function setUpPagination(productsList) {
+  if (!products || products.length === 0) {
+    return
   }
-  const numberOfPages = Math.ceil(productsList?.length/productsPerPage);
-  console.log(numberOfPages, productsList);
-  const paginationBtns = document.getElementById('paginationBtns');
-  if(searchQuery.value !=="" ){
+  const numberOfPages = Math.ceil(productsList?.length / productsPerPage)
+  console.log(numberOfPages, productsList)
+  const paginationBtns = document.getElementById('paginationBtns')
+  if (searchQuery.value !== '') {
     console.log('true')
-    paginationBtns.classList.add('hidden');
-    return;
+    paginationBtns.classList.add('hidden')
+    return
   }
-  paginationBtns.classList.remove('hidden');
-  paginationBtns.innerHTML = '';
+  paginationBtns.classList.remove('hidden')
+  paginationBtns.innerHTML = ''
 
-  for(let i=1; i<=numberOfPages; i++){
-    let newBtn = document.createElement('button');
-    newBtn.textContent = i;
-    newBtn.classList.add('text-blue-500', 'text-lg', 'font-semibold', 'px-3','py-1', 'm-1', 'hover:bg-blue-500', 'hover:text-white' );
-    if(i===currentPage){
+  for (let i = 1; i <= numberOfPages; i++) {
+    let newBtn = document.createElement('button')
+    newBtn.textContent = i
+    newBtn.classList.add(
+      'text-blue-500',
+      'text-lg',
+      'font-semibold',
+      'px-3',
+      'py-1',
+      'm-1',
+      'hover:bg-blue-500',
+      'hover:text-white'
+    )
+    if (i === currentPage) {
       newBtn.classList.add('bg-blue-500', 'text-white')
     }
-    newBtn.addEventListener('click', ()=>{
-      currentPage = i;
-      paginate(currentPage, productsList);
-      setUpPagination(productsList);
-
-    });
-    paginationBtns.appendChild(newBtn);
+    newBtn.addEventListener('click', () => {
+      currentPage = i
+      paginate(currentPage, productsList)
+      setUpPagination(productsList)
+    })
+    paginationBtns.appendChild(newBtn)
   }
-
 }
-
-
 
 // ******************Product display *******************
 
 function displayProducts(productsOnDisplay) {
-
-
-
   const template = document.querySelector('#product-card')
   const productList = document.querySelector('#product-list')
 
-  productList.innerHTML = '';
+  productList.innerHTML = ''
 
   if (productsOnDisplay.length === 0) {
-
-    const noProductMessage = document.createElement('div');
-    noProductMessage.textContent = "No available products right now!!";
-    noProductMessage.classList.add('text-center','text-semi-bold', 'text-lg', 'text-gray-500', 'mt-4'); // Add some styling as needed
-    productList.appendChild(noProductMessage);
-    return; // Exit the function early
+    const noProductMessage = document.createElement('div')
+    noProductMessage.textContent = 'No available products right now!!'
+    noProductMessage.classList.add(
+      'text-center',
+      'text-semi-bold',
+      'text-lg',
+      'text-gray-500',
+      'mt-4'
+    ) // Add some styling as needed
+    productList.appendChild(noProductMessage)
+    return // Exit the function early
   }
   productsOnDisplay.forEach((product) => {
     const productNode = template.content.cloneNode(true)
@@ -165,26 +165,25 @@ function displayProducts(productsOnDisplay) {
   })
 }
 
-
-
-function filterProducts(query){
-  if(!products || products.length ===0){
-    console.log("Products are not available...");
-    return;
+function filterProducts(query) {
+  if (!products || products.length === 0) {
+    console.log('Products are not available...')
+    return
   }
 
-  const filteredProducts = filteredCategoryProducts?.filter((product)=>{
-    return product?.title.toLowerCase().includes(query.toLowerCase());
+  const filteredProducts = filteredCategoryProducts?.filter((product) => {
+    return product?.title.toLowerCase().includes(query.toLowerCase())
   })
   console.log(filteredProducts)
-  currentPage = 1;
-  setUpPagination(filteredProducts);
-  paginate(currentPage, filteredProducts);
+  currentPage = 1
+  setUpPagination(filteredProducts)
+  paginate(currentPage, filteredProducts)
   // displayProducts(filteredProducts);
 }
 
-searchQuery.addEventListener('input', ()=>{ filterProducts(searchQuery.value)});
-
+searchQuery.addEventListener('input', () => {
+  filterProducts(searchQuery.value)
+})
 
 const menuToggle = document.getElementById('menu-toggle')
 const mobileMenu = document.getElementById('mobile-menu')
@@ -193,67 +192,58 @@ menuToggle.addEventListener('click', () => {
   mobileMenu.classList.toggle('hidden')
 })
 
-
-
 //Categories section
-let categoryList=[];
+let categoryList = []
 
-async function fetchCategoryList(){
-
-  try{
-  const res = await fetch(categoryURL);
-  categoryList = await res.json();
-   displayCategories();
-
-
-  } catch(error){
-    console.log("Could not fetch categories...", error);
+async function fetchCategoryList() {
+  try {
+    const res = await fetch(categoryURL)
+    categoryList = await res.json()
+    displayCategories()
+  } catch (error) {
+    console.log('Could not fetch categories...', error)
   }
 }
-fetchCategoryList();
+fetchCategoryList()
 
+const categoryFilters = document.querySelector('#category-filters')
 
-const categoryFilters = document.querySelector('#category-filters');
-
-function displayCategories(){
-
-
-  categoryList?.forEach((category)=>{
-
-    const newOption = document.createElement('option');
-    newOption.value = category;
-    newOption.textContent = category;
-    newOption.classList.add('capitalize','cursor-pointer');
-    categoryFilters.appendChild(newOption);
-
+function displayCategories() {
+  categoryList?.forEach((category) => {
+    const newOption = document.createElement('option')
+    newOption.value = category.name
+    newOption.textContent = category.name
+    newOption.classList.add('capitalize', 'cursor-pointer')
+    categoryFilters.appendChild(newOption)
   })
 }
 
-function filteredCategoryList(category){
-  console.log('function called');
-  if(!products || products.length===0 ||!categoryList || categoryList.length===0){
-    console.log("Products not available right now");
-    return;
+function filteredCategoryList(category) {
+  console.log('function called')
+  if (
+    !products ||
+    products.length === 0 ||
+    !categoryList ||
+    categoryList.length === 0
+  ) {
+    console.log('Products not available right now')
+    return
   }
-  if(category==="All"){
-  filteredCategoryProducts = products;
-  paginate(currentPage, products);
-  return;
-
+  if (category === 'All') {
+    filteredCategoryProducts = products
+    paginate(currentPage, products)
+    return
   }
-   filteredCategoryProducts = products.filter((product)=>{
-    return product?.tags?.includes(category);
+  filteredCategoryProducts = products.filter((product) => {
+    return product?.tags?.includes(category)
   })
-  console.log(filteredCategoryProducts);
-  displayProducts(filteredCategoryProducts);
+  console.log(filteredCategoryProducts)
+  displayProducts(filteredCategoryProducts)
 }
 
-categoryFilters.addEventListener('change', ()=>{
+categoryFilters.addEventListener('change', () => {
   filteredCategoryList(categoryFilters.value)
-  currentPage =1;
-  paginate(currentPage, filteredCategoryProducts);
-  setUpPagination(filteredCategoryProducts);
-
-});
-
-
+  currentPage = 1
+  paginate(currentPage, filteredCategoryProducts)
+  setUpPagination(filteredCategoryProducts)
+})
