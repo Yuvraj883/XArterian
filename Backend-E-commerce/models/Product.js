@@ -1,42 +1,43 @@
 const mongoose = require('mongoose');
 
-const productSchema = new mongoose.Schema({
+const ProductSchema = new mongoose.Schema({
   id: Number,
   title: String,
   description: String,
+  category: String,
   price: Number,
-  discountPercentage: Number,
-  rating: Number,
-  stock: Number,
   availabilityStatus: String,
   brand: String,
-  category: String,
-  thumbnail: String,
-  images: [String],
   dimensions: {
     width: Number,
     height: Number,
     depth: Number
   },
-  weight: Number,
-  shippingInformation: String,
-  returnPolicy: String,
-  warrantyInformation: String,
-  minimumOrderQuantity: Number,
-  sku: String,
-  tags: [String],
+  discountPercentage: Number,
+  images: [String],
   meta: {
+    barcode: String,
     createdAt: Date,
     updatedAt: Date,
-    barcode: String,
     qrCode: String
   },
+  minimumOrderQuantity: Number,
+  rating: Number,
+  returnPolicy: String,
   reviews: [{
-    reviewer: String,
-    reviewText: String,
-    rating: Number
-  }]
+    reviewerName: String,
+    reviewerEmail: String,
+    rating: Number,
+    comment: String,
+    date: Date
+  }],
+  shippingInformation: String,
+  sku: String,
+  stock: Number,
+  tags: [String],
+  thumbnail: String,
+  warrantyInformation: String,
+  weight: Number
 });
 
-const product = mongoose.model('Product', productSchema);
-module.exports = product;
+module.exports = mongoose.model('Product', ProductSchema);
