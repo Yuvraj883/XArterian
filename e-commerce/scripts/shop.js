@@ -2,7 +2,7 @@ import { addToCart } from '../scripts/addToCart.js'
 // import {verifyAuth} from './scripts/verifyAuthStatus.js'
 
 //API Calling
-const categoryURL = 'http://localhost:5000/api/categories';
+const categoryURL = 'https://x-arterian.vercel.app/api/categories';
 
 const URL = 'https://x-arterian.vercel.app/api/products/?limit=120';
 
