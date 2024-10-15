@@ -127,6 +127,9 @@ console.log(user.name);
 if(user.name){
   const name = document.createElement('li');
   name.textContent = user.name;
-  menu.appendChild(name); 
+  menu.appendChild(name);
+  const name2 = document.createElement('li');
+  name2.textContent = user.name;
+  mobileMenu.appendChild(name2);
 }
 
