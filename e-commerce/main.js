@@ -1,4 +1,6 @@
-import { addToCart } from './scripts/addToCart.js'
+import { addToCart } from './scripts/addToCart.js';
+import {jwtDecode} from 'jwt-decode';
+
 // import {verifyAuth} from './scripts/verifyAuthStatus.js'
 
 //API Calling
@@ -110,3 +112,21 @@ const mobileMenu = document.getElementById('mobile-menu')
 menuToggle.addEventListener('click', () => {
   mobileMenu.classList.toggle('hidden')
 })
+
+const menu = document.getElementById('menu');
+
+
+
+
+const token = localStorage.getItem('token');
+
+const user = jwtDecode(token);
+console.log(user.id);
+console.log(user.name);
+
+if(user.name){
+  const name = document.createElement('li');
+  name.textContent = user.name;
+  menu.appendChild(name); 
+}
+
